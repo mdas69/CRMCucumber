@@ -1,0 +1,6 @@
+hooks\CRMPROHooks.class
+com\runner\TestRunnerCampaignsPageTest.class
+stepDefinitions\LoginPageSteps.class
+stepDefinitions\CampaignsPageSteps.class
+com\runner\TestRunnerSearchForumPageTest.class
+stepDefinitions\SearchFormPageSteps.class
