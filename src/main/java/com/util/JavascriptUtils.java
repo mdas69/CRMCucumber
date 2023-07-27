@@ -19,4 +19,9 @@ public class JavascriptUtils {
 	public void scrollPage() {
 
 	}
+	/*
+	 * added from git 
+	 */
+	public void highlighter(){
+	}
 }
