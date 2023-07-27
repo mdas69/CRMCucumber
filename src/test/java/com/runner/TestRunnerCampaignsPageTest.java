@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features= {"./src/test/resources/feature/CampaignsPage.feature"},
 		glue= {"stepDefinitions","hooks"},
-		plugin= {"pretty"},
+		plugin= {"pretty", "summary","html: target/cucumber-reports","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		publish = true)
 
 public class TestRunnerCampaignsPageTest {
