@@ -2,6 +2,7 @@ package hooks;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -37,27 +38,23 @@ public class CRMPROHooks {
 	 */
 	@After(order = 1)
 	public void takeScreenShotForFailedScenario(Scenario scenario) {
+		
+		/*
+		 * For Failed Scenarios Only
+		 */
 		if (scenario.isFailed()) {
+			String attachmentName = scenario.getName();
+			byte[] whatToAttach = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(whatToAttach, "image/png", attachmentName);
 
-			String screenShotName = scenario.getName();
-			byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-			scenario.attach(sourcePath, "image/png", screenShotName);
-			
-			
-			String path = scenario.getName()+"_"+".png";
-			File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			
-			File dest = new File(path);
-			try {
-				FileUtils.copyFile(src, dest);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-
-			
-
+		} 
+		/*
+		 * For the passed Scenario 
+		 */
+		else {
+			String attachmentName = scenario.getName() + "_" + LocalDate.now() + "_" + ".png";
+			byte[] whatToAttach = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(whatToAttach, "image/png", attachmentName);
 		}
 	}
 

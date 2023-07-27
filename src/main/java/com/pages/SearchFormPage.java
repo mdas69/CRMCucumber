@@ -35,7 +35,12 @@ public class SearchFormPage {
 	private By searchContactButton = By.xpath("(//input[@value='Search Contacts'])[1]");
 	private By checkBoxLocator = By.xpath("//a[text()='Eder Militao']/../../td/input[@type='checkbox']");
 	private By phoneLocator = By.xpath("//a[text()='Eder Militao']/../../td/span[@context='phone']");
-
+	private By newContactsLocators = By.cssSelector("a[title*='New Contact']");
+	private By firstNameInNewLocator = By.cssSelector("input[name *= 'first_name']");
+	private By lastNameInNewContactsLocator = By.cssSelector("input[name *= 'surname']");
+	private By saveButtonLocator = By.xpath("//td[@colspan='2']/input[@value='Save']");
+	private By homeMenuLocator= By.cssSelector("a[title *=Home]");
+	
 	public void selectFullSearchForm() {
 		CRM.eleUtil.frameSwitch(frameLocator);
 		CRM.eleUtil.actions_MouseHover(contactsLocator);
@@ -60,6 +65,7 @@ public class SearchFormPage {
 
 	}
 
+	
 	public void clickContactsMenu() {
 		CRM.eleUtil.frameSwitch(frameLocator);
 		CRM.eleUtil.doClickButton(contactsLocator);
@@ -69,7 +75,7 @@ public class SearchFormPage {
 	private By pagination = By.xpath("(//div[@class='pagination'])[1]//strong/../a");
 
 	public void dosearchinContactTable(String nameExpected) {
-		By checkBoxNameExpecetd = By.xpath("//a[text()='" + nameExpected + "']/../../td/input[@type='checkbox']");
+		By checkBoxNameExpecetd = By.xpath("//a[text()='"+nameExpected+"']/../../td/input[@type='checkbox']");
 
 		// click on page 1
 
@@ -138,4 +144,45 @@ public class SearchFormPage {
 		return null;
 
 	}
+
+	public void clickOnNewContacts() {
+		CRM.eleUtil.frameSwitch(frameLocator);
+		CRM.eleUtil.actions_MouseHover(contactsLocator);
+		CRM.eleUtil.doClickButton(newContactsLocators);
+	}
+
+	public void enteringFirstNames(String names) {
+		CRM.eleUtil.doSendKeys(firstNameInNewLocator, names);
+		saveOnNewContacts();	
+	}
+	
+	public String popUpinNewContactsPage() {
+		String alertTextActual =  CRM.eleUtil.alertPopUpGetText();
+		 CRM.eleUtil.alertPopUpAccept();
+		 return alertTextActual;
+		
+	}
+	
+	
+	public void enteringLastNames(String names) {
+		CRM.eleUtil.doSendKeys(lastNameInNewContactsLocator, names);
+		saveOnNewContacts();
+	}
+	
+	public void clickHomeAndContactsMenu() {
+		CRM.eleUtil.doClickButton(homeMenuLocator);
+		CRM.eleUtil.doClickButton(contactsLocator);
+	}
+	public void saveOnNewContacts() {
+		CRM.eleUtil.doClickButton(saveButtonLocator);
+	}
+	
+	public String clickOnDeleteContacts(String Name) {
+		By deleteContactsLocator = By.xpath("//a[text()='"+Name+"']/../../td/a[contains(@href,'delete')]/i");
+		CRM.eleUtil.doClickButton(deleteContactsLocator);
+		String alertText = CRM.eleUtil.alertPopUpGetText();
+		CRM.eleUtil.alertPopUpAccept();
+		return alertText;
+	}
+
 }

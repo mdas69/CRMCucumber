@@ -31,8 +31,7 @@ public class LoginPageSteps {
 	public void the_title_of_the_application_is_verified(String expectedTitle) {
 		// Title of the page, use assertion
 
-		String actualTitle = loginPage.getTitleinPage();
-
+		String actualTitle = loginPage.getTitleinPage(expectedTitle);
 		Assert.assertEquals(actualTitle.contains(expectedTitle),true);
 		;
 
@@ -76,12 +75,8 @@ public class LoginPageSteps {
 	@Then("lands on Accounts page has title {string}")
 	
 	public void verifyAccountsPage(String title) {
-		loginPage.getTitleinPage();
-		
-		Assert.assertTrue(loginPage.getTitleinPage().contains(title));
-		
-		
-		
+		loginPage.getTitleinPage(title);
+		Assert.assertTrue(loginPage.getTitleinPage(title).contains(title));
 	}
 
 

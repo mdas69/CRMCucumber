@@ -52,8 +52,8 @@ public class LoginPage {
 	/*
 	 * To get the page title
 	 */
-	public String getTitleinPage() {
-		return eleUtil.doGetTitle();
+	public String getTitleinPage(String title) {
+		return eleUtil.doGetTitle(title);
 	}
 
 	/*

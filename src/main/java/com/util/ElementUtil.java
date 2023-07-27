@@ -2,6 +2,7 @@ package com.util;
 
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -46,7 +47,9 @@ public class ElementUtil {
 		doGetElement(locator).click();
 	}
 
-	public String doGetTitle() {
+	public String doGetTitle(String title) {
+		WebDriverWait wait = new WebDriverWait(this.driver,250);
+		wait.until(ExpectedConditions.titleContains(title));
 		return driver.getTitle();
 	}
 
@@ -86,7 +89,30 @@ public class ElementUtil {
 		actions.sendKeys(Keys.ENTER).perform();
 
 	}
+	
+	/*
+	 * Alert Utils
+	 */
+	
+	private Alert checkAlertIsPresent() {
+		WebDriverWait wait = new WebDriverWait(this.driver, 250);
+		return wait.until(ExpectedConditions.alertIsPresent());
+	}
+	public String alertPopUpGetText() {
+		return checkAlertIsPresent().getText();
+	}
+	
+	public void alertPopUpDismiss() {
+		checkAlertIsPresent().dismiss();
+	}
+	
+	public void alertPopUpAccept() {
+		checkAlertIsPresent().accept();
+	}
 
+	
+	
+	
 	/*
 	 * Frame Utils
 	 */

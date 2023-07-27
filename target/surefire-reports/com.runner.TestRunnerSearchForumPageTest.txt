@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.runner.TestRunnerSearchForumPageTest
--------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 230.363 s - in com.runner.TestRunnerSearchForumPageTest

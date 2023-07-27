@@ -1,6 +1,0 @@
-com\pages\LoginPage.class
-com\pages\SearchFormPage.class
-com\pages\CampaignsPage.class
-com\factory\CRMApp.class
-com\factory\DriverFactory.class
-com\util\ElementUtil.class
