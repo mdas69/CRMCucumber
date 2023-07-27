@@ -23,5 +23,11 @@ public class JavascriptUtils {
 	 * added from git 
 	 */
 	public void highlighter(){
+		
 	}
+
+	public void scrollpageToElement(){
+		
+	}
+	
 }
