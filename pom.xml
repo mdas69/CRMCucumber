@@ -63,19 +63,20 @@
 			<!--<version>7.4.0</version> -->
 		</dependency>
 
-<!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber6-adapter -->
-<dependency>
-<groupId>tech.grasshopper</groupId>
-<artifactId>extentreports-cucumber6-adapter</artifactId>
-<version>2.1.0</version>
-</dependency>
+		<!--
+		https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber6-adapter -->
+		<dependency>
+			<groupId>tech.grasshopper</groupId>
+			<artifactId>extentreports-cucumber6-adapter</artifactId>
+			<version>2.1.0</version>
+		</dependency>
 
-<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-<dependency>
-<groupId>com.aventstack</groupId>
-<artifactId>extentreports</artifactId>
-<version>5.0.4</version>
-</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.4</version>
+		</dependency>
 
 	</dependencies>
 
@@ -103,7 +104,18 @@
 						<source>17</source>
 						<target>17</target>
 						<!--                    <release>16</release>-->
+						
+						
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.22</version>
+						</path>
+					</annotationProcessorPaths>
+					
 					</configuration>
+					
 				</plugin>
 
 
@@ -114,7 +126,7 @@
 					<configuration>
 						<parallel>methods</parallel>
 						<includes>
-							<include>TestRunnerParallel.java</include>
+							<include>TestRunnerCampaignsPageTest.java</include>
 						</includes>
 						<useUnlimitedThreads>true</useUnlimitedThreads>
 					</configuration>
