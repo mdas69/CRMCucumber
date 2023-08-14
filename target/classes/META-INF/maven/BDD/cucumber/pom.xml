@@ -21,16 +21,21 @@
 	</properties>
 
 	<dependencies>
+		<!--
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.141.59</version>
+			<version>4.11.0</version>
 		</dependency>
 
+
+		<!--
+		https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>4.4.3</version>
+			<version>5.4.1</version>
 		</dependency>
 
 		<!--<dependency>
@@ -104,18 +109,18 @@
 						<source>17</source>
 						<target>17</target>
 						<!--                    <release>16</release>-->
-						
-						
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>1.18.22</version>
-						</path>
-					</annotationProcessorPaths>
-					
+
+
+						<annotationProcessorPaths>
+							<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+								<version>1.18.22</version>
+							</path>
+						</annotationProcessorPaths>
+
 					</configuration>
-					
+
 				</plugin>
 
 

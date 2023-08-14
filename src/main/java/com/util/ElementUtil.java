@@ -1,5 +1,6 @@
 package com.util;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
@@ -21,14 +22,14 @@ public class ElementUtil {
 	}
 
 	public WebElement doGetElement(By locator) {
-		WebDriverWait wait = new WebDriverWait(this.driver, 250);
+		WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMinutes(4));
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
 	}
 
 	public boolean doClickCheckBox(By locator) {
 
-		WebDriverWait wait = new WebDriverWait(this.driver, 10);
+		WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMinutes(4));
 		doGetElement(locator).click();
 		return wait.until(ExpectedConditions.elementToBeSelected(locator));
 	}
@@ -48,18 +49,18 @@ public class ElementUtil {
 	}
 
 	public String doGetTitle(String title) {
-		WebDriverWait wait = new WebDriverWait(this.driver,250);
+		WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMinutes(4));
 		wait.until(ExpectedConditions.titleContains(title));
 		return driver.getTitle();
 	}
 
 	public List<WebElement> waitForElement(By locator) {
-		WebDriverWait wait = new WebDriverWait(this.driver, 250);
+		WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMinutes(4));
 		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 	}
 
 	public List<WebElement> doGetElements(By locator) {
-		WebDriverWait wait = new WebDriverWait(this.driver, 50);
+		WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMinutes(4));
 		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 		// return driver.findElements(locator);
 	}
@@ -70,7 +71,7 @@ public class ElementUtil {
 	
 	
 	public boolean docheckStatusOfCheckBox(By locator) {
-		WebDriverWait wait = new WebDriverWait(this.driver,50) ;
+		WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMinutes(4));
 			return wait.until(ExpectedConditions.elementSelectionStateToBe(locator, true));
 		
 	}
@@ -95,7 +96,7 @@ public class ElementUtil {
 	 */
 	
 	private Alert checkAlertIsPresent() {
-		WebDriverWait wait = new WebDriverWait(this.driver, 250);
+		WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMinutes(4));
 		return wait.until(ExpectedConditions.alertIsPresent());
 	}
 	public String alertPopUpGetText() {
@@ -118,7 +119,7 @@ public class ElementUtil {
 	 */
 
 	public void frameSwitch(By locator) {
-		WebDriverWait wait = new WebDriverWait(this.driver, 250);
+		WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofMinutes(4));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator));
 	}
 

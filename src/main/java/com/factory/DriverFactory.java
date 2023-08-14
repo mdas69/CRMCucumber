@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -23,7 +24,6 @@ public class DriverFactory {
 			prop.load(file);
 			System.out.println(prop);
 		}
-
 		catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,11 +36,15 @@ public class DriverFactory {
 	public WebDriver init_Driver(Properties property) {
 
 		String browserName = property.getProperty("browser").trim();
+		String browserVersion = property.getProperty("browserVersion");
 
 		if (browserName.equalsIgnoreCase("Chrome") || browserName.equalsIgnoreCase("Google Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			// WebDriver driver = new ChromeDriver();
-			tlDriver.set(new ChromeDriver());
+			ChromeOptions co = new ChromeOptions();
+			co.setBrowserVersion(browserVersion);
+			tlDriver.set(new ChromeDriver(co));
+			
 		} else {
 			WebDriverManager.firefoxdriver().setup();
 			// WebDriver driver = new ChromeDriver();
